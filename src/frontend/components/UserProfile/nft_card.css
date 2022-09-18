@@ -1,0 +1,22 @@
+.nft-card {
+    width: 330px;
+    height: 500px;
+    overflow: hidden;
+    -webkit-box-shadow: 6px 7px 21px -2px rgba(34, 60, 80, 0.23);
+    -moz-box-shadow: 6px 7px 21px -2px rgba(34, 60, 80, 0.23);
+    box-shadow: 6px 7px 21px -2px rgba(34, 60, 80, 0.23); 
+    border-radius: 10px;
+}
+.nft-img {
+    width: 330px;
+    height: 330px;
+    overflow: hidden;
+
+}
+.nft-img img {
+    transition: transform 0.7s;
+}
+.nft-img img:hover {
+    transform: scale(1.2);
+
+}

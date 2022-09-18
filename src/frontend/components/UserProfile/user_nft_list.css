@@ -1,0 +1,12 @@
+.nft-list {
+    padding-top: 100px;
+    width: 100%;
+}
+.wrapper {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 340px);
+    gap: 10px;
+
+
+}

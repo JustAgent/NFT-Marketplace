@@ -34,7 +34,7 @@ export const UserProvider = ({children}) => {
     .then(balance => {  
         setcurrentAccount(address);
         setcurrentBalance(ethers.utils.formatEther(balance))
-        console.log(currentAccount,currentBalance)
+        //console.log(currentAccount,currentBalance)
         
     })
   }
