@@ -1,17 +1,15 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.0 <0.9.0;
+pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract TestToken1 is ERC721, Ownable {
-    constructor() {
-
-    }
-
-
-    uint256 public tokenPrice = 1000000000000000; // 0.001 ETH
-    function setBaseURI(string memory baseURI) public onlyOwner {
-        _setBaseURI(baseURI);
+contract TestToken1 is ERC721URIStorage {
+    uint public tokenCount;
+    constructor() ERC721("TestToken1", "TEST1"){}
+    function mint(string memory _tokenURI) external returns(uint) {
+        tokenCount ++;
+        _safeMint(msg.sender, tokenCount);
+        _setTokenURI(tokenCount, _tokenURI);
+        return(tokenCount);
     }
 }
