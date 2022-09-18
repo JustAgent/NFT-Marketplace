@@ -8,12 +8,17 @@
     border-radius: 10px;
 }
 .nft-img {
+    justify-content: center;
     width: 330px;
     height: 330px;
     overflow: hidden;
 
 }
 .nft-img img {
+
+    width: 330px;
+    height: 330px;
+    object-fit: cover;
     transition: transform 0.7s;
 }
 .nft-img img:hover {
