@@ -15,16 +15,20 @@ const UserNftList =  () => {
     //const test = currentAccount
     const fetchNFTs = async (currentAccount) => {
         if (currentAccount!= null && flag == false) {
-                const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${test}&blockchains=ETHEREUM`);
+            // const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${test}&blockchains=ETHEREUM`);
+            const response = await fetch(`https://api.opensea.io/api/v1/assets?owner=${test}&limit=50`);
+            // const response = await fetch(`https://testnets-api.opensea.io/api/v1/assets?owner=${test}&limit=50&offset=1`);
                 const data = await response.json()
-                console.log(data.total);
-                setnfts(data.items)
-                console.log(nfts);
+                console.log(data.assets);
+                setnfts(...nfts, data.assets)
+                // console.log(nfts);
                 flag = true
+                //debugger
             }
     }
-    
-    fetchNFTs(currentAccount);
+    // for (let i = 1; i<=5; i++){
+        fetchNFTs(currentAccount);
+    // }
     return (
     <div className="nft-list">
         <button onClick={connectWalletHandler}>Connect Wallet</button>
