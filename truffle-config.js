@@ -41,11 +41,9 @@
  * https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-dashboard/
  */
 
-//require('dotenv').config();
-import {MNEMONIC, API_KEY_INFURA} from "./src/constants/secrets"
-
-//const { MNEMONIC, PROJECT_ID } = process.env;
-
+require('dotenv').config();
+//var MNEMONIC = new Buffer(process.env["MAINNET_PRIVATE_KEY"], "hex")
+var {MNEMONIC, API_KEY_INFURA} = require("./src/constants/secrets")
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {

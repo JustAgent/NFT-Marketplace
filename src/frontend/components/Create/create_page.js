@@ -4,10 +4,7 @@ import './create_page.css'
 
 const CreateNftPage = () => {
 
-    useEffect(() => {
     
-      
-    })
     
 
     return ( 
