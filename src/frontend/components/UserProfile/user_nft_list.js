@@ -6,11 +6,12 @@ import { NETWORK } from "../../../constants/constants";
 import "./user_nft_list.css"
 import NftCard from "./nft_card";
 
-let flag = false
 
 const UserNftList =  () => {
     const {currentAccount, currentBalance, connectWalletHandler} = useContext(UserContext);
     const [nfts, setnfts] = useState([])
+    const [flag, setflag] = useState(false)
+
     const test = "0x55fe0C55359F02292E95b67763d41d0181399188"
     //const test = currentAccount
     const fetchNFTs = async (currentAccount) => {
@@ -20,14 +21,14 @@ const UserNftList =  () => {
             // const response = await fetch(`https://testnets-api.opensea.io/api/v1/assets?owner=${test}&limit=50&offset=1`);
                 const data = await response.json()
                 console.log(data.assets);
-                setnfts(...nfts, data.assets)
+                setnfts( data.assets)
                 // console.log(nfts);
-                flag = true
+                setflag(true)
                 //debugger
             }
     }
+    fetchNFTs(currentAccount);
     // for (let i = 1; i<=5; i++){
-        fetchNFTs(currentAccount);
     // }
     return (
     <div className="nft-list">
@@ -35,6 +36,7 @@ const UserNftList =  () => {
         <h1>{currentAccount}</h1>
         <h1>{currentBalance}</h1>
         <h1>{nfts.length}</h1>
+        <button onClick={() => console.log(nfts)}>click</button>
         <div className="wrapper">
             {nfts.map((nft, index)=> {
                 return <NftCard nft={nft} key={index}/>

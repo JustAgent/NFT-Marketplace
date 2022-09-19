@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import InputFormModel from './input_form';
 import './create_page.css'
 
 const CreateNftPage = () => {
+
+    useEffect(() => {
+    
+      
+    })
+    
+
     return ( 
         <div className='wrapper-create-nft'>
             <div>
