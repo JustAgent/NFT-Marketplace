@@ -10,7 +10,6 @@ const CreateNftPage = () => {
 
     const nameListener = (text) => {
         setname(text.target.value)
-    
     }
     const tagListener = (text) => {
         settag(text.target.value)

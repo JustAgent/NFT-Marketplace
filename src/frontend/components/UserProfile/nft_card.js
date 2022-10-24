@@ -3,9 +3,16 @@ import './nft_card.css'
 import '../../../assets/assets_links'
 import { ether_sign } from '../../../assets/assets_links';
 import ethers from 'ethers'
+import { Link } from 'react-router-dom';
 const NftCard = ({ nft }) => {
+
+    const Open = () => {
+        <Link to="/assets/test1" state={{type: nft}}>My account</Link>
+    }
+     
+
     return ( 
-        <div className='nft-card'>
+        <div className='nft-card' onClick={Open} >
 
             <div className='nft-img'>
                 <img className='img' src={nft.image_preview_url} />
