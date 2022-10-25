@@ -8,13 +8,13 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import ExplorePage from './frontend/components/Explore/explore';
 import WelcomePage from './frontend/components/Welcome/welcome_page';
 import Item from './frontend/components/ItemPage/Item';
+import NotFound from './frontend/pages/NotFound';
 
 
 function App() {
   
 
-  return (
-    <Router>    
+  return (  
       <UserProvider>
       
       <Header />
@@ -22,12 +22,13 @@ function App() {
         <Route exact path="/" element={<WelcomePage />} />
         <Route exact path="/explore" element={<ExplorePage />} />
         <Route exact path="/create" element={<CreateNftPage />} />
-        <Route exact path="/profile" element={<UserNftList />} />
-        <Route path="/assets/:type" element={<Item />} />
+        <Route path="/profile" element={<UserNftList />} />
+        <Route path="/assets/:contract/:id" element={<Item />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       
     </UserProvider>
-    </Router>
+    
 
   );
 }

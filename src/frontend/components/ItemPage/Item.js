@@ -2,12 +2,11 @@ import React from 'react'
 import { Link, useParams, useLocation } from 'react-router-dom';
 
 
-const Item = (props) => {
+const Item = () => {
     
-    const {type} = useParams();
-    const nft = useLocation().state.stateParam;
+  const { id } = useParams();
 
-
+console.log(id);
     return ( 
         <>
             <div className='container'>
@@ -17,7 +16,8 @@ const Item = (props) => {
 
                 <div className='data'>
                     <div className='main-image'>
-                        <image src={props.image}></image>
+                        {/* <img src={props.image}></img> */}
+                        <div>123 {id} 123</div>
                     </div>
                     <div className='properties'></div>
 
