@@ -10,15 +10,17 @@ const NftCard = ({ nft }) => {
     const navigate = useNavigate();
     
     const openItem = () => {
-        navigate(`/assets/${nft.asset_contract["address"]}/${nft.token_id}`)
+        navigate(
+            `/assets/${nft.asset_contract["address"]}/${nft.token_id}`,
+            {state:nft}
+             )
     }
 
     return ( 
-        <div className='nft-card' onClick={openItem}>
+        <div className='nft-card' onClick={() => {openItem()}  }>
             <div className='nft-img'>
                 <img className='img' src={nft.image_preview_url} />
             </div>
-
             <div>
                 {nft.name}
             </div>

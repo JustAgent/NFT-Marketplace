@@ -4,9 +4,9 @@ import { Link, useParams, useLocation } from 'react-router-dom';
 
 const Item = () => {
     
-  const { id } = useParams();
-
-console.log(id);
+// const { id } = useParams();
+const nft = useLocation().state;
+console.log(nft)
     return ( 
         <>
             <div className='container'>
@@ -16,8 +16,13 @@ console.log(id);
 
                 <div className='data'>
                     <div className='main-image'>
-                        {/* <img src={props.image}></img> */}
-                        <div>123 {id} 123</div>
+                        <img src={nft.image_preview_url}></img> 
+                    </div>
+                    <div>
+                        <div>{nft.asset_contract['address']}</div>
+                        <div>{nft.token_id}</div>
+                        <div>{nft.description}</div>
+                        <div>{nft.last_sale!=null ? nft.last_sale.total_price / 1000000000000000000 : "Haven't sold yet"} </div>
                     </div>
                     <div className='properties'></div>
 
