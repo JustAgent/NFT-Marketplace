@@ -12,7 +12,7 @@ const UserNftList =  () => {
     const [nfts, setnfts] = useState([])
     const [flag, setflag] = useState(false)
 
-    const test = "0x55fe0C55359F02292E95b67763d41d0181399188"
+    const test = "0x994fB7C0c2675da8CC6ed13f31781FA4393a6eCe"
     //const test = currentAccount
     const fetchNFTs = async (currentAccount) => {
         if (currentAccount!= null && flag == false) {

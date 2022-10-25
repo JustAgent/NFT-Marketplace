@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useParams, useLocation } from 'react-router-dom';
+import PropertyCard from './PropertyCard';
 
 
 const Item = () => {
@@ -21,10 +22,19 @@ console.log(nft)
                     <div>
                         <div>{nft.asset_contract['address']}</div>
                         <div>{nft.token_id}</div>
+                        <div>{nft.owner["address"]}</div>
                         <div>{nft.description}</div>
                         <div>{nft.last_sale!=null ? nft.last_sale.total_price / 1000000000000000000 : "Haven't sold yet"} </div>
                     </div>
-                    <div className='properties'></div>
+                    <div className='properties'>
+                        {nft.traits.map( (trait, index) => {
+                        return <PropertyCard 
+                            trait_type={trait.trait_type}  
+                            value={trait.value}  
+                            trait_count={trait.trait_count} 
+                            key={index}/>
+                        })}
+                    </div>
 
                 </div>
             </div>
